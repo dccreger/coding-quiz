@@ -1,0 +1,27 @@
+.questions {
+  font-size: large;
+  color: darkmagenta;
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: black;
+  color: darkmagenta;
+  border: 2px solid beige;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: grey;
+  color: darkmagenta;
+}
+
+.buttonContainer {
+  padding: 20px;
+}
