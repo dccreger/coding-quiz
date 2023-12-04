@@ -1,5 +1,3 @@
-var button = $(".button");
-var text = $(".questions");
 var questions = [
   "What planet do we live on?",
   "How many moons does Mars have?",
@@ -9,31 +7,30 @@ var questions = [
   "What is beyond Pluto?",
   "What is Pluto considered?",
 ];
-var answers1 = ["Earth", "Mars", "Arrakis", "Endor"];
-var answers2 = ["One", "Two", "Three", "Four"];
-var answers3 = ["Jupiter", "Saturn", "Venus", "California"];
-var answers4 = ["Four", "Five", "Nine", "Eight"];
-var answers5 = ["Sol", "Alpha Centauri", "Sun", "Betelgeuse"];
-var currentQuestionIndex = 0;
-var buttonContainer = $(".buttonContainer");
-//Begin Game and add buttons
-function duplicatebuttons() {
-  buttonContainer.empty();
-  var originalButton = button.first();
 
-  for (var i = 0; i < 4; i++) {
-    var clonedButton = originalButton.clone();
-    clonedButton.text(answers1[i]);
-    buttonContainer.append(clonedButton);
-  }
+var answers = [
+  ["Earth", "Venus", "Mars", "Jupiter"],
+  [("One", "Two", "Three", "Four")],
+  [("Mercury", "Venus", "Uranus", "Neptune")],
+  [("Nine", "Eight", "Ten", "Four")],
+  [("Sol", "Beteleguese", "Alpha Centauri", "Sun")],
+  [("Astroid Belt", "Gas Giants", "Kuiper Belt", "The Cloud")],
+  [("A Dwarf Planet", "A Planet", "An Asteroid", "A Disney Character")],
+];
+
+var questionIndex = 0;
+var answerIndex = 0;
+var button = document.querySelector(".button");
+var buttons = document.querySelectorAll(".button");
+
+for (var i = 1; i < buttons.length; i++) {
+  buttons[i].style.display = "none";
 }
 
-button.on("click", function () {
-  //   if (currentQuestionIndex < questions.length) {
-  text.text(questions[currentQuestionIndex]);
-  currentQuestionIndex++;
-  duplicatebuttons();
-  //   }
-});
+buttons[0].addEventListener("click", function () {
+  buttons[0].style.display = "none";
 
-console.log("Children of the button container", buttonContainer.children());
+  for (var i = 1; i < buttons.length; i++) {
+    buttons[i].style.display = "block";
+  }
+});
