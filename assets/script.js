@@ -10,14 +10,14 @@ var questions = [
 
 var answers = [
   ["Earth", "Venus", "Mars", "Jupiter"],
-  [("One", "Two", "Three", "Four")],
-  [("Mercury", "Venus", "Uranus", "Neptune")],
-  [("Nine", "Eight", "Ten", "Four")],
-  [("Sol", "Beteleguese", "Alpha Centauri", "Sun")],
-  [("Astroid Belt", "Gas Giants", "Kuiper Belt", "The Cloud")],
-  [("A Dwarf Planet", "A Planet", "An Asteroid", "A Disney Character")],
+  ["One", "Two", "Three", "Four"],
+  ["Mercury", "Venus", "Uranus", "Neptune"],
+  ["Nine", "Eight", "Ten", "Four"],
+  ["Sol", "Beteleguese", "Alpha Centauri", "Sun"],
+  ["Astroid Belt", "Gas Giants", "Kuiper Belt", "The Cloud"],
+  ["A Dwarf Planet", "A Planet", "An Asteroid", "A Disney Character"],
 ];
-
+var questionElement = document.querySelector(".questions");
 var questionIndex = 0;
 var answerIndex = 0;
 var button = document.querySelector(".button");
@@ -30,7 +30,13 @@ for (var i = 1; i < buttons.length; i++) {
 buttons[0].addEventListener("click", function () {
   buttons[0].style.display = "none";
 
-  for (var i = 1; i < buttons.length; i++) {
+  for (var i = 0; i < buttons.length; i++) {
     buttons[i].style.display = "block";
   }
+  questionElement.textContent = questions[questionIndex];
+
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].querySelector("p").textContent = answers[questionIndex][i];
+  }
+  questionIndex++;
 });
