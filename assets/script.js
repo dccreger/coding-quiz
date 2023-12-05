@@ -44,22 +44,40 @@ function handleAnswer(event) {
   var selectedAnswerIndex = Array.from(buttons).indexOf(event.target);
   if (selectedAnswerIndex === correctAns[questionIndex]) {
     score++;
-    console.log(selectedAnswerIndex);
-    console.log(correctAns[questionIndex]);
-    console.log(correctAns);
     console.log("Correct answer selected. Score: " + score);
   } else {
     timer -= 10;
-    console.log(selectedAnswerIndex);
-    console.log(correctAns[questionIndex]);
-    console.log(correctAns);
-    console.log("incorrect answer selected. Timer " + timer);
+    console.log("Incorrect answer selected. Timer " + timer);
   }
+
   questionIndex++;
   if (questionIndex < questions.length) {
     questionElement.textContent = questions[questionIndex];
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].querySelector("p").textContent = answers[questionIndex][i];
     }
+  } else {
+    questionElement.textContent = "Congratulations! Quiz Completed!";
+    for (var i = 1; i < buttons.length; i++) {
+      buttons[i].style.display = "none";
+      button.textContent = "Reset Quiz";
+      button.removeEventListener("click", handleAnswer);
+      button.addEventListener("click", resetGame);
+    }
   }
+}
+
+function resetGame() {
+  questionIndex = 0;
+  timer = 60;
+  score = 0;
+  questionElement.textContent = "Pop Quiz! Are you ready to begin?";
+  button.textContent = "Ready!";
+  button.removeEventListener("click", resetGame);
+  for (var i = 1; i < buttons.length; i++) {
+    buttons[i].style.display = "none";
+  }
+  button.addEventListener("click", function () {
+    handleAnswer();
+  });
 }
