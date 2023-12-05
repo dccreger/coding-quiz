@@ -1,0 +1,12 @@
+//Objectives
+    1)Link css, JQuery and javascript
+    2)Create the base html for the page
+    3)Create the start quiz screen - follow up with css later
+    4)Create start button and assign it basic css
+    5)Create a click action that brings up the first question and hides the start button and text
+    6)Create 4 option buttons that pull multiple choice answers
+    7)Track correct answers and add to score
+    8)Once any button is pushed call the next question and answer variations
+    9)At the end of the game give a result and a choice to enter my initials with a submit action. Store scores in browser memory
+    10)Display a list of high scores and option to play again or reset the game.
+    11)Timer
